@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/16 17:28:32 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/25 16:00:00 by josmorei         ###   ########.fr       */
+/*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
+/*   Updated: 2026/06/25 16:00:07 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-
-int		verifynumb(char *str);
-long	ft_atoi(char *str);
+#include "push_swap.h"
 
 
+long	nb;
+nb = ft_atoi(str);
 
-#endif
+if (nb < INT_MIN || nb > __INT_MAX__)
+	write (2, "Error\n", 6);

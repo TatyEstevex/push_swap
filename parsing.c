@@ -6,9 +6,11 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/16 20:03:46 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:47:04 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	verifynumb(char *str)
 {
@@ -29,15 +31,29 @@ int	verifynumb(char *str)
 	}
 	return (1);
 }
-int	atoi (char *str)
+
+long	ft_atoi(char *str)
 {
-	int	sign;
+	long	result;
+	int		sign;
 
+	result = 0;
 	sign = 1;
-
-
-
-	return (str )
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -sign;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (result * sign);
 }
+
+
+
 
 
