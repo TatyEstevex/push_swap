@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/26 19:03:02 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/26 19:04:45 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	checkdup(t_node *stack, int nb)
 	while (current != stack)
 	{
 		if (current -> value == nb)
-			return (1);
+			return (0);
 		current = current -> next;
 	}
 	return (1);
