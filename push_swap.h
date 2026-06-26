@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 17:28:32 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/25 16:00:00 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/26 14:27:15 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
+} t_node;
+
 int		verifynumb(char *str);
 long	ft_atoi(char *str);
 
 
 
 #endif
+
+
