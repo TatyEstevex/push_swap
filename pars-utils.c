@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/26 14:29:51 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/26 18:57:16 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,22 @@ long	ft_atoi(char *str)
 	return (result * sign);
 }
 
-int	checkdup(t_node *)
+int	checkdup(t_node *stack, int nb)
 {
+	t_node	*current;
 
+	if (!stack)
+		return (0);
+	if (stack -> value == nb)
+		return (1);
+	current = stack -> next;
+	while (current != stack)
+	{
+		if (current -> value == nb)
+			return (1);
+		current = current -> next;
+	}
+	return (0);
 }
 
 

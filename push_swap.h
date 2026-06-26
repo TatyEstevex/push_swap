@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/26 16:28:15 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/26 18:54:41 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
 
 typedef struct s_node
 {
