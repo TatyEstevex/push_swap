@@ -3,23 +3,24 @@
 #                                                          :::      ::::::::   #
 #   Makefile                                             :+:      :+:    :+:   #
 #                                                      +:+ +:+         +:+     #
-#   By: josmorei <josmorei@student.42porto.com>      +#+  +:+       +#+        #
+#   By: tde-alme <tde-alm@student.42porto.com>       +#+  +:+       +#+        #
 #                                                  +#+#+#+#+#+   +#+           #
-#   Created: 0026/06/16 16:25:08 by smorei              #+#    #+#             #
-#   Updated: 2026/06/16 16:38:04 by josmorei           ###   ########.fr       #
+#   Created: 0026/06/16 16:25:08 by ei                  #+#    #+#             #
+#   Updated: 2026/06/26 16:53:32 by tde-alme           ###   ########.fr       #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
-SRC = 
+SRC = main_tester.c list_movs.c push.c rotate.c reverse_rotate.c swap.c sort_two_or_three.c
+	stack_size.c 
 
-OFILES = $(SRC: .c= .o)
+OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
-		ar rcs $@ $^
+		cc -o $@ $^
 %.o: %.c
 		cc -Wall -Werror -Wextra -c $< -o $@
 

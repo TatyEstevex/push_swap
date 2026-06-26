@@ -6,15 +6,17 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 14:37:13 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/25 17:04:43 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/26 16:01:35 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 void	sa(t_node **stack_a) //swap top 2 a
 {
 	int	temp;
 
-	if ((!*stack_a) || (!*stack_a -> next))
+	if ((!*stack_a) || (!(*stack_a) -> next))
 		return ;
 	temp = (*stack_a)-> value;
 	(*stack_a)-> value = (*stack_a)-> next -> value;
@@ -26,7 +28,7 @@ void	sb(t_node **stack_b) //swap top 2 b
 {
 	int	temp;
 
-	if ((!*stack_b) || (!*stack_b -> next))
+	if ((!*stack_b) || (!(*stack_b) -> next))
 		return ;
 	temp = (*stack_b)-> value;
 	(*stack_b)-> value = (*stack_b)-> next -> value;

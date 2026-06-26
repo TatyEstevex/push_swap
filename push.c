@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 13:23:02 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/25 17:04:38 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/26 15:58:00 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    pa(t_node **stack_a, t_node **stack_b)
     temp = *stack_b;
     *stack_b = temp-> next;
     if (*stack_b)
-        *stack_b-> prev = NULL;
+        (*stack_b)-> prev = NULL;
     temp-> next = *stack_a;
     if(*stack_a)
         (*stack_a)->prev = temp;
@@ -38,7 +38,7 @@ void pb(t_node **stack_a, t_node **stack_b)
 	temp = *stack_a;
 	*stack_a = temp-> next;
 	if (*stack_a)
-		*stack_a-> prev = NULL;
+		(*stack_a)-> prev = NULL;
 	temp-> next = *stack_b;
 	if (*stack_b)
 		(*stack_b)-> prev = temp;

@@ -1,43 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   stack_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/26 14:18:21 by tde-alme         ###   ########.fr       */
+/*   Created: 2026/06/26 16:42:42 by tde-alme          #+#    #+#             */
+/*   Updated: 2026/06/26 16:50:36 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	verifynumb(char *str)
+int stack_size(t_node **stack_a)
 {
-	int	i;
+    t_node  node;
+    int     count;
 
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (str[i] == '\0')
-		return (0);
-	while (str[i] != '\0')
-	{
-		if (str[i] == '-' || str[i] == '+')
-			return (0);
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+    node = *stack_a;
+    count = 0;
+    while(node-> next)
+        count = count + node-> next;   
+    return (count);        
 }
-int	atoi (char *str)
-{
-	int	sign;
-
-	sign = 1;
-
-
-
-	return (str )
-}
-
-
