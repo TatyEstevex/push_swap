@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/26 14:18:12 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/26 14:29:51 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ long	ft_atoi(char *str)
 	}
 	return (result * sign);
 }
+
 int	checkdup(t_node *)
 {
 
