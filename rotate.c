@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 16:16:39 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/25 17:03:06 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/26 15:59:15 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    ra(t_node **stack_a)
 	temp = *stack_a;
 	*stack_a = temp-> next;
 	if(*stack_a)
-		*stack_a-> prev = NULL;
+		(*stack_a)-> prev = NULL;
 	last = *stack_a;
 	while(last-> next)
 		last = last-> next;
@@ -42,14 +42,14 @@ void	rb(t_node **stack_b)
 	temp = *stack_b;
 	*stack_b = temp-> next;
 	if(*stack_b)
-		*stack_b-> prev = NULL;
+		(*stack_b)-> prev = NULL;
 	last = *stack_b;
 	while(last-> next)
 		last = last-> next;
 	last-> next = temp;
 	temp-> prev = last;
 	temp-> next = NULL;
-	write(1, "rb\n", 3)
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_node **stack_a, t_node **stack_b)

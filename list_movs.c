@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_movs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:11:37 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/24 12:53:46 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/25 10:51:06 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,27 @@ t_node	*new_node(int value)
 void	add_front(t_node **stack, t_node *node)
 {
 	if (!node)
-		return;
+		return ;
 	if (!*stack)
 	{
 		*stack = node;
-		return;
+		return ;
 	}
 	node -> next = *stack;
-	(*stack) -> prev = node;
+	(*stack)-> prev = node;
 	*stack = node;
 }
+
 void	add_back(t_node **stack, t_node *node)
 {
 	t_node	*temp;
 
-	if(!node)
-		return;
-	if(!*stack)
+	if (!node)
+		return ;
+	if (!*stack)
 	{
 		*stack = node;
-		return;
+		return ;
 	}
 	temp = *stack;
 	while (temp -> next)
