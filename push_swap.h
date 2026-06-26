@@ -24,6 +24,8 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
+int		verifynumb(char *str);
+long	ft_atoi(char *str);
 t_node	*new_node(int value);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
@@ -44,5 +46,3 @@ void	sort_three(t_node **stack_a);
 void print_stack(t_node *stack); // apagar, para testes
 
 #endif
-
-
