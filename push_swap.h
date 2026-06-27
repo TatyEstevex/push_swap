@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/26 18:54:41 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:08:25 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ typedef struct s_node
 int		verifynumb(char *str);
 long	ft_atoi(char *str);
 t_node	*new_node(int value);
+int		parsing(int argc, char **argv, t_node **stack_a);
+void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
-void    pa(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
-void    ra(t_node **stack_a);
+void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	sa(t_node **stack_a);
@@ -44,6 +46,6 @@ void	ss(t_node **stack_a, t_node **stack_b);
 void	sort_two(t_node **stack_a);
 void	sort_three(t_node **stack_a);
 
-void print_stack(t_node *stack); // apagar, para testes
+void	print_stack(t_node *stack); // apagar, para testes
 
 #endif
