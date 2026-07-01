@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/26 16:28:15 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:47:24 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct s_node
 	int				value;
 	struct s_node	*next;
 	struct s_node	*prev;
+	int				index;
+	int				cost;
 }	t_node;
 
-int		verifynumb(char *str);
-long	ft_atoi(char *str);
 t_node	*new_node(int value);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
@@ -42,7 +42,24 @@ void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 void	sort_two(t_node **stack_a);
 void	sort_three(t_node **stack_a);
+int 	stack_size(t_node **stack_a);
+void    push_all_to_b(t_node **stack_a, t_node **stack_b);
+int		find_position(t_node **stack_a, int value);
+int		cost_a(int pos_a, int size_a);
+int		cost_b(int pos_b, int size_b);
+void 	calculate_costs(t_node **stack_a, t_node **stack_b);
+t_node	*find_cheapest(t_node **stack_b);
+void 	rotate_b(t_node **stack_b, int pos, int size_b);
+void    rotate_a(t_node **stack_a, int pos, int size_a);
+void	swap_cheapest(t_node **stack_a, t_node **stack_b);
+void	push_swap_simple(t_node **stack_a, t_node **stack_b);
+void	fix_top(t_node **stack_a);
+
+
+
 
 void print_stack(t_node *stack); // apagar, para testes
 
 #endif
+
+
