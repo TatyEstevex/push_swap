@@ -14,12 +14,15 @@
 
 int stack_size(t_node **stack_a)
 {
-    t_node  node;
+    t_node  *node;
     int     count;
 
     node = *stack_a;
     count = 0;
-    while(node-> next)
-        count = count + node-> next;   
-    return (count);        
+    while (node)
+    {
+        count++;
+        node = node->next;
+    }
+    return (count);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars-utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/26 19:04:45 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:27:10 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,3 @@ int	checkdup(t_node *stack, int nb)
 	}
 	return (1);
 }
-
-
-
-
-
-
