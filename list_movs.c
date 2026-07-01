@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_movs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:11:37 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/25 10:51:06 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/01 12:04:54 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,45 @@ t_node	*new_node(int value)
 
 void	add_front(t_node **stack, t_node *node)
 {
-	if (!node)
+	t_node	*first;
+	t_node	*last;
+
+	if (!stack || !node)
 		return ;
 	if (!*stack)
 	{
+		node -> next = node;
+		node -> prev = node;
 		*stack = node;
 		return ;
 	}
-	node -> next = *stack;
-	(*stack)-> prev = node;
+	first = *stack;
+	last = first -> prev;
+	node -> next = first;
+	node -> prev = last;
+	last -> next = node;
+	first -> prev = node;
 	*stack = node;
 }
 
 void	add_back(t_node **stack, t_node *node)
 {
-	t_node	*temp;
+	t_node	*first;
+	t_node	*last;
 
-	if (!node)
+	if (!stack || !node)
 		return ;
 	if (!*stack)
 	{
+		node -> next = node;
+		node -> prev = node;
 		*stack = node;
 		return ;
 	}
-	temp = *stack;
-	while (temp -> next)
-	{
-		temp = temp -> next;
-	}
-	temp -> next = node;
-	node -> prev = temp;
+	first = *stack;
+	last = first -> prev;
+	node -> next = first;
+	node -> prev = last;
+	last -> next = node;
+	first -> prev = node;
 }
