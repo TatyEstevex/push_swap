@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/01 14:47:24 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:08:25 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -27,14 +28,16 @@ typedef struct s_node
 }	t_node;
 
 t_node	*new_node(int value);
+int		parsing(int argc, char **argv, t_node **stack_a);
+void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
-void    pa(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
-void    ra(t_node **stack_a);
+void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
 void	rr(t_node **stack_a, t_node **stack_b);
 void	sa(t_node **stack_a);
@@ -58,7 +61,7 @@ void	fix_top(t_node **stack_a);
 
 
 
-void print_stack(t_node *stack); // apagar, para testes
+void	print_stack(t_node *stack); // apagar, para testes
 
 #endif
 
