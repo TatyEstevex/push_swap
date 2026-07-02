@@ -6,29 +6,44 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/06/27 17:39:13 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/01 11:07:02 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// caso falhe algo no parsing temos de dar free na stack inteiro, 
-// esta funcao e para isso, 
-// podes utilizar para dar free no array se precisares
 
-void	freestack(t_node **stack)
+int	main(int argc, char **argv)
+{
+	t_node	*stack_a;
+
+	stack_a = NULL;
+	if (argc < 2)
+		return (0);
+	if (parsing(argc, argv, &stack_a) == 0)
+		return (0);
+	if (sorted(stack_a) == 0)
+	{
+
+	}
+	freestack(&stack_a);
+	return (1);
+}
+
+static	int	sorted(t_node *stack_a)
 {
 	t_node	*current;
-	t_node	*next_node;
 
-	if (!stack || *stack)
-		return ;
-	(*stack)-> prev -> next = NULL;
-	current = *stack;
-	while (current != NULL)
+	if (!stack_a)
+		return (1);
+	current = stack_a;
+	while (current -> next != stack_a)
 	{
-		next_node = current -> next;
-		free (current);
-		current -> next_node;
+		if (current -> value > current -> next -> value)
+			return (0);
+		current = current -> next;
 	}
-	*stack = NULL
+	if (current -> value > stack_a -> value)
+		return (0);
+	return (1);
 }
+

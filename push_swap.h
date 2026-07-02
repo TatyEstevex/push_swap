@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/06/27 18:08:25 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:58:39 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ typedef struct s_node
 	int				cost;
 }	t_node;
 
+extern int g_moves;
+
 t_node	*new_node(int value);
+t_node	*remove_node(t_node **stack);
 int		parsing(int argc, char **argv, t_node **stack_a);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);

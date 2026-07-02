@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_costs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:40:32 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/01 14:58:45 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:35:57 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void calculate_costs(t_node **stack_a, t_node **stack_b)
     size_b = stack_size(stack_b);
     pos_b = 0;
 	current = *stack_b;
-    while (current)
+	current-> cost = cost_b(pos_b, size_b) + cost_a (find_position(stack_a, current -> value), size_a);     
+    current = current -> next;
+	pos_b++;
+    while (current != *stack_b)
     {
         current-> cost = cost_b(pos_b, size_b) + cost_a (find_position(stack_a, current -> value), size_a);     
         current = current -> next;
@@ -50,7 +53,7 @@ t_node	*find_cheapest(t_node **stack_b)
 
 	cheapest = *stack_b;
 	current = (*stack_b)->next;
-	while (current)
+	while (current != *stack_b)
 	{
 		if (current->cost < cheapest->cost)
 			cheapest = current;
