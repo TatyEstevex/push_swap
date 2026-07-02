@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_movs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:11:37 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/01 12:04:54 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:08:03 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,26 @@ t_node	*new_node(int value)
 	node -> value = value;
 	node -> next = NULL;
 	node -> prev = NULL;
+	return (node);
+}
+
+t_node	*remove_node(t_node **stack)
+{
+	t_node	*node;
+
+	if (!*stack)
+		return (NULL);
+	node = *stack;
+	if (node->next == node)
+		*stack = NULL;
+	else
+	{
+		*stack = node->next;
+		node->prev->next = node->next;
+		node->next->prev = node->prev;
+	}
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 

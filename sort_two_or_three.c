@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_two_or_three.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 14:31:36 by tde-alme          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/07/01 14:58:59 by tde-alme         ###   ########.fr       */
-=======
-/*   Updated: 2026/07/01 15:53:48 by josmorei         ###   ########.fr       */
->>>>>>> josmorei
+/*   Updated: 2026/07/02 10:08:03 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

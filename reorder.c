@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reorder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:59:41 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/01 16:20:31 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/02 09:43:18 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,8 @@ void    push_all_to_b(t_node **stack_a, t_node **stack_b)
         sort_three (stack_a);
     else if (t == 2)
         sort_two (stack_a);
-    printf("--- depois push_all_to_b ---\n");
-    print_stack(*stack_a);
-    printf("--- stack b ---\n");
-    print_stack(*stack_b);
 }
 
-int find_max_position
 int    find_position(t_node **stack_a, int value)
 {
     t_node  *first;
@@ -42,7 +37,7 @@ int    find_position(t_node **stack_a, int value)
     pos = 0;
     if (value < first->value)
         return (0);
-    while(first->next)
+    while(first->next != *stack_a)
     {
         if (first-> value < value && value < first->next->value)
             return (pos + 1);
