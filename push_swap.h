@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 15:11:40 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/02 18:18:54 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ extern int g_moves;
 
 t_node	*new_node(int value);
 t_node	*remove_node(t_node **stack);
-int		parsing(int argc, char **argv, t_node **stack_a);
+int		parsing(int argc, char **argv, t_node **stack_a, int *flag);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
@@ -61,6 +61,7 @@ void	swap_cheapest(t_node **stack_a, t_node **stack_b);
 void	push_swap_simple(t_node **stack_a, t_node **stack_b);
 void	fix_top(t_node **stack_a);
 float	check_disorder(t_node **stack_a);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 
 

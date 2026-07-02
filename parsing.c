@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 12:05:26 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/02 18:13:35 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ static int	parsing_error(t_node **stack)
 	return (0);
 }
 
-int	parsing(int argc, char **argv, t_node **stack_a)
+int	parsing(int argc, char **argv, t_node **stack_a, int *flag)
 {
 	int		i;
 	long	nb;
 	t_node	*node;
 
-	i = 1;
+	*flag = check_flag(argc, argv);
+	if (flag > 0)
+		i = 2;
+	else
+		i = 1;
 	while (i < argc)
 	{
 		if (verifynumb(argv[i]) == 0)
@@ -41,7 +45,6 @@ int	parsing(int argc, char **argv, t_node **stack_a)
 	}
 	return (1);
 }
-
 
 void	freestack(t_node **stack)
 {
@@ -61,4 +64,18 @@ void	freestack(t_node **stack)
 	*stack = NULL;
 }
 
+static int	check_flag(int argc, char **argv)
+{
+	if (argc < 2)
+		return (0);
+	if (ft_strncmp(argv[1], "--simple", 8) == 0)
+		return (1);
+	else if (ft_strncmp(argv[1], "--medium", 8) == 0)
+		return (2);
+	else if (ft_strncmp(argv[1], "--complex", 8) == 0)
+		return (3);
+	else if (ft_strncmp(argv[1], "--adaptive", 10) == 0)
+		return (4);
+	return(0);
+}
 
