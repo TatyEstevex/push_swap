@@ -17,6 +17,17 @@ int	stack_size(t_node **stack_a)
 	t_node	*node;
 	int		count;
 
+    t_node  *node;
+    int     count;
+
+    node = *stack_a;
+    count = 0;
+    while (node)
+    {
+        count++;
+        node = node->next;
+    }
+    return (count);
 	if (!*stack_a)
 		return (0);
 	node = *stack_a;
