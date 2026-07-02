@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/01 11:07:02 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/01 17:57:07 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
+	int		size;
 
 	stack_a = NULL;
 	if (argc < 2)
@@ -23,7 +24,12 @@ int	main(int argc, char **argv)
 		return (0);
 	if (sorted(stack_a) == 0)
 	{
-
+		size = stack_size(&stack_a);
+		if (size == 2)
+			sort_two(&stack_a);
+		if (size == 3)
+			sort_three(&stack_a);
+		
 	}
 	freestack(&stack_a);
 	return (1);
