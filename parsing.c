@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 18:13:35 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/03 17:11:49 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ static int	check_flag(int argc, char **argv)
 		return (3);
 	else if (ft_strncmp(argv[1], "--adaptive", 10) == 0)
 		return (4);
-	return(0);
+	return (0);
 }
 
