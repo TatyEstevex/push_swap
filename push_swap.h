@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 09:58:39 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/07 16:20:01 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void 	calculate_costs(t_node **stack_a, t_node **stack_b);
 t_node	*find_cheapest(t_node **stack_b);
 void 	rotate_b(t_node **stack_b, int pos, int size_b);
 void    rotate_a(t_node **stack_a, int pos, int size_a);
+void	rotate_both(t_node **stack_a, t_node **stack_b, int pos_a, int pos_b,
+		int size_a, int size_b);
+void	reverse_rotate_both(t_node **stack_a, t_node **stack_b, int pos_a, int pos_b,
+		int size_a, int size_b);
 void	swap_cheapest(t_node **stack_a, t_node **stack_b);
 void	push_swap_simple(t_node **stack_a, t_node **stack_b);
 void	fix_top(t_node **stack_a);
