@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   swap_cheapest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 13:59:30 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/01 14:58:40 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/02 11:29:05 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
+
 
 void rotate_b(t_node **stack_b, int pos, int size_b)
 {
@@ -73,6 +74,7 @@ void	swap_cheapest(t_node **stack_a, t_node **stack_b)
 		pos++;
 	}
     pos_a = find_position(stack_a, change->value);
+	printf("inserir %d na posicao %d\n", change->value, pos_a);
     rotate_b(stack_b, pos, size_b);
     rotate_a(stack_a, pos_a, size_a);
     pa(stack_a, stack_b);
