@@ -3,44 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 14:37:13 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 15:11:47 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:08:30 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_node **stack_a) //swap top 2 a
+void	sa(t_data *data) //swap top 2 a
 {
 	int	temp;
 
-	if ((!*stack_a) || ((*stack_a) -> next == *stack_a))
+	if (!data->stack_a || data->stack_a->next == data->stack_a)
 		return ;
-	temp = (*stack_a)-> value;
-	(*stack_a)-> value = (*stack_a)-> next -> value;
-	(*stack_a)-> next -> value = temp;
+	temp = data->stack_a-> value;
+	data->stack_a-> value = data->stack_a-> next -> value;
+	data->stack_a-> next -> value = temp;
 	write(1, "sa\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_sa++;
 }
 
-void	sb(t_node **stack_b) //swap top 2 b
+void	sb(t_data *data) //swap top 2 b
 {
 	int	temp;
 
-	if ((!*stack_b) || ((*stack_b) -> next == *stack_b))
+	if (!data->stack_b || data->stack_b->next == data->stack_b)
 		return ;
-	temp = (*stack_b)-> value;
-	(*stack_b)-> value = (*stack_b)-> next -> value;
-	(*stack_b)-> next -> value = temp;
+	temp = data-> stack_b-> value;
+	data->stack_b-> value = data-> stack_b-> next -> value;
+	data->stack_b-> next -> value = temp;
 	write(1, "sb\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_sb++;
 }
 
-void	ss(t_node **stack_a, t_node **stack_b) //swap top 2 a & b
+void	ss(t_data *data) //swap top 2 a & b
 {
-	sa(stack_a);
-	sb(stack_b);
-	g_moves--;
+	sa(data);
+	sb(data);
+	data->moves--;
+	data->count_ss++;
 }

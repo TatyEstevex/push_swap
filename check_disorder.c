@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_disorder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 16:40:35 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:45:02 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	check_disorder(t_node **stack_a)
+float	check_disorder(t_data *data)
 {
 	t_node	*current;
 	t_node	*checker;
@@ -20,16 +20,16 @@ float	check_disorder(t_node **stack_a)
 	int		pairs;
 	int		size;
 
-	size = stack_size(stack_a);
+	size = stack_size(data->stack_a);
 	if (size < 2)
 		return (0);
 	mistakes = 0;
 	pairs = 0;
-	current = *stack_a;
+	current = data->stack_a;
 	while (size-- > 0)
 	{
 		checker = current -> next;
-		while (checker != *stack_a)
+		while (checker != data->stack_a)
 		{
 			pairs++;
 			if (current -> value > checker -> value)

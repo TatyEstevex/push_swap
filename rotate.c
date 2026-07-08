@@ -3,37 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 16:16:39 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 09:57:41 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:31:40 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(t_node **stack_a)
+void    ra(t_data *data)
 {
-	if(!*stack_a)
+	if(!data->stack_a)
 		return;
-	*stack_a = (*stack_a)-> next;
+	data->stack_a = data->stack_a -> next;
 	write(1, "ra\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_ra++;
 }
 
-void	rb(t_node **stack_b)
+void	rb(t_data *data)
 {
-	if (!*stack_b)
+	if (!data->stack_b)
 		return;
-	*stack_b = (*stack_b)-> next;
+	data->stack_b = data->stack_b-> next;
 	write(1, "rb\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_rb++;
 }
 
-void	rr(t_node **stack_a, t_node **stack_b)
+void	rr(t_data *data)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ra(data);
+	rb(data);
 	write(1, "rr\n", 3);
-	g_moves--;
+	data->moves--;
+	data->count_rr++;
 }

@@ -3,44 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/03 17:11:49 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/08 15:52:07 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	parsing_error(t_node **stack)
+static int	parsing_error(t_data *data)
 {
 	write (2, "Error\n", 6);
 	freestack(stack);
 	return (0);
 }
 
-int	parsing(int argc, char **argv, t_node **stack_a, int *flag)
+int	parsing(int argc, char **argv, t_data *data, int *flag)
 {
 	int		i;
 	long	nb;
 	t_node	*node;
 
 	*flag = check_flag(argc, argv);
-	if (flag > 0)
+	if (*flag > 0)
 		i = 2;
 	else
 		i = 1;
 	while (i < argc)
 	{
 		if (verifynumb(argv[i]) == 0)
-			return (parsing_error(stack_a));
+			return (parsing_error(data));
 		nb = ft_atoi(argv[i]);
-		if (nb < INT_MIN || nb > INT_MAX || (checkdup(*stack_a, nb) == 0))
-			return (parsing_error(stack_a));
+		if (nb < INT_MIN || nb > INT_MAX
+			|| checkdup(data->stack_a, nb) == 0)
+			return (parsing_error(data));
 		node = new_node(nb);
 		if (!node)
-			return (parsing_error(stack_a));
-		add_back(stack_a, node);
+			return (parsing_error(data));
+		add_back(&data->stack_a, node);
 		i++;
 	}
 	return (1);
@@ -78,4 +79,3 @@ static int	check_flag(int argc, char **argv)
 		return (4);
 	return (0);
 }
-
