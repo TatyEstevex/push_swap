@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   check_disorder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
 /*   Updated: 2026/07/08 20:01:15 by josmorei         ###   ########.fr       */
@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-float	check_disorder(t_node **stack_a)
+float	check_disorder(t_data *data)
 {
 	t_node	*current;
 	int		mistakes;
 	int		pairs;
 	int		size;
 
-	size = stack_size(stack_a);
+	size = stack_size(data->stack_a);
 	if (size < 2)
 		return (0.0);
 	mistakes = 0;

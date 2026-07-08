@@ -2,37 +2,42 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2026/06/24 13:23:02 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 11:23:47 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 14:07:03 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_data *data)
 {
 	t_node	*temp;
 
-	if (!stack_b || !*stack_b)
+	if (!data || !data->stack_b)
 		return ;
-	temp = remove_node(stack_b);
-	add_front(stack_a, temp);
+	temp = remove_node(&data->stack_b);
+	add_front(&data->stack_a, temp);
 	write(1, "pa\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_pa++;
+		// acrescentar um no stack a quando movimento para a a, e no b a mesma coisa, e retirar do que sai
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_data *data)
 {
 	t_node	*temp;
 
-	if (!stack_a || !*stack_a)
+	if (!data || !data->stack_a)
 		return ;
-	temp = remove_node(stack_a);
-	add_front(stack_b, temp);
+	temp = remove_node(&data->stack_a);
+	add_front(&data->stack_b, temp);
 	write(1, "pb\n", 3);
-	g_moves++;
+	data->moves++;
+	data->count_pb++;
 }
-

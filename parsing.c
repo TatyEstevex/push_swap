@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-static int	parsing_error(t_node **stack)
+static int	parsing_error(t_data *data)
 {
 	write(2, "Error\n", 6);
 	freestack(stack);
 	return (0);
 }
 
-int	parsing(int argc, char **argv, t_node **stack_a, int *flag)
+int	parsing(int argc, char **argv, t_data *data, int *flag)
 {
 	int		i;
 	long	nb;
