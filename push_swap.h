@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
 /*   Updated: 2026/07/07 16:20:01 by tde-alme         ###   ########.fr       */
@@ -31,7 +31,7 @@ extern int g_moves;
 
 t_node	*new_node(int value);
 t_node	*remove_node(t_node **stack);
-int		parsing(int argc, char **argv, t_node **stack_a);
+int		parsing(int argc, char **argv, t_node **stack_a, int *flag);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
@@ -48,12 +48,12 @@ void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 void	sort_two(t_node **stack_a);
 void	sort_three(t_node **stack_a);
-int 	stack_size(t_node **stack_a);
-void    push_all_to_b(t_node **stack_a, t_node **stack_b);
+int		stack_size(t_node **stack_a);
+void	push_all_to_b(t_node **stack_a, t_node **stack_b);
 int		find_position(t_node **stack_a, int value);
 int		cost_a(int pos_a, int size_a);
 int		cost_b(int pos_b, int size_b);
-void 	calculate_costs(t_node **stack_a, t_node **stack_b);
+void	calculate_costs(t_node **stack_a, t_node **stack_b);
 t_node	*find_cheapest(t_node **stack_b);
 void 	rotate_b(t_node **stack_b, int pos, int size_b);
 void    rotate_a(t_node **stack_a, int pos, int size_a);
@@ -64,7 +64,8 @@ void	reverse_rotate_both(t_node **stack_a, t_node **stack_b, int pos_a, int pos_
 void	swap_cheapest(t_node **stack_a, t_node **stack_b);
 void	push_swap_simple(t_node **stack_a, t_node **stack_b);
 void	fix_top(t_node **stack_a);
-
+float	check_disorder(t_node **stack_a);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 
 

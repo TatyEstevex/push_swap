@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 11:28:51 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 11:35:45 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,40 @@
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
+	t_node	*stack_b;
+	int		size;
+	int		flag;
 
 	stack_a = NULL;
+	stack_b = NULL;
+	flag = 0;
 	if (argc < 2)
 		return (0);
-	if (parsing(argc, argv, &stack_a) == 0)
+	if (parsing(argc, argv, &stack_a, &flag) == 0)
 		return (0);
-	if (sorted(stack_a) == 0)
+	if (check_disorder(&stack_a) > 0)
 	{
-
+		size = stack_size(&stack_a);
+		if (size == 2)
+			sort_two(&stack_a);
+		else if (size == 3)
+			sort_three(&stack_a);
+		else if (size > 3)
+			algorithm(*stack_a, *stack_b, flag);
 	}
 	freestack(&stack_a);
 	return (1);
 }
 
-static	int	sorted(t_node *stack_a)
+static void	algorithm(t_node stack_a, t_node stack_b, int flag)
 {
-	t_node	*current;
-
-	if (!stack_a)
-		return (1);
-	current = stack_a;
-	while (current -> next != stack_a)
-	{
-		if (current -> value > current -> next -> value)
-			return (0);
-		current = current -> next;
-	}
-	if (current -> value > stack_a -> value)
-		return (0);
-	return (1);
+	if (flag == 1)
+		return ;
+	else if (flag == 2)
+		return ;
+	else if (flag == 3)
+		return ;
+	else if (flag == 4)
+		return ;
 }
 

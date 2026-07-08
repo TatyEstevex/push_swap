@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_costs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:40:32 by tde-alme          #+#    #+#             */
 /*   Updated: 2026/07/07 16:19:13 by tde-alme         ###   ########.fr       */

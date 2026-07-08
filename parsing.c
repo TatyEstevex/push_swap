@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 11:28:55 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/03 17:11:49 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,32 @@ static int	parsing_error(t_node **stack)
 	return (0);
 }
 
-int	parsing(int argc, char **argv, t_node **stack_a)
+int	parsing(int argc, char **argv, t_node **stack_a, int *flag)
 {
 	int		i;
 	long	nb;
 	t_node	*node;
 
-	i = 1;
+	*flag = check_flag(argc, argv);
+	if (flag > 0)
+		i = 2;
+	else
+		i = 1;
 	while (i < argc)
 	{
 		if (verifynumb(argv[i]) == 0)
 			return (parsing_error(stack_a));
 		nb = ft_atoi(argv[i]);
-		if (nb < INT_MIN || nb > INT_MAX || (checkdup(*stack_a, nb) == 1))
+		if (nb < INT_MIN || nb > INT_MAX || (checkdup(*stack_a, nb) == 0))
 			return (parsing_error(stack_a));
 		node = new_node(nb);
 		if (!node)
 			return (parsing_error(stack_a));
-		add_to_back(stack_a, node);
+		add_back(stack_a, node);
 		i++;
 	}
 	return (1);
 }
-// caso falhe algo no parsing temos de dar free na stack inteiro, 
-// esta funcao e para isso, 
-// podes utilizar para dar free no array se precisares
 
 void	freestack(t_node **stack)
 {
@@ -63,4 +64,18 @@ void	freestack(t_node **stack)
 	*stack = NULL;
 }
 
+static int	check_flag(int argc, char **argv)
+{
+	if (argc < 2)
+		return (0);
+	if (ft_strncmp(argv[1], "--simple", 8) == 0)
+		return (1);
+	else if (ft_strncmp(argv[1], "--medium", 8) == 0)
+		return (2);
+	else if (ft_strncmp(argv[1], "--complex", 8) == 0)
+		return (3);
+	else if (ft_strncmp(argv[1], "--adaptive", 10) == 0)
+		return (4);
+	return (0);
+}
 
