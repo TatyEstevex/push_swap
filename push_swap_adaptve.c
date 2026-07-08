@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_disorder.c                                   :+:      :+:    :+:   */
+/*   push_swap_adaptve.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/08 20:01:15 by josmorei         ###   ########.fr       */
+/*   Created: 2026/07/08 12:21:15 by josmorei          #+#    #+#             */
+/*   Updated: 2026/07/08 12:41:48 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	check_disorder(t_node **stack_a)
+void	push_swap_adaptive(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*current;
-	int		mistakes;
-	int		pairs;
-	int		size;
+	float	result;
 
-	size = stack_size(stack_a);
-	if (size < 2)
-		return (0.0);
-	mistakes = 0;
-	pairs = size - 1;
-	current = *stack_a;
-	while (size -1 > 0)
-	{
-		if (current -> value > current -> next -> value)
-			mistakes++;
-		current = current -> next;
-		size--;
-	}
-	return ((float) mistakes / pairs);
+	result = check_disorder(stack_a);
+	if (result <= 0.2)
+		push_swap_simple(stack_a, stack_b);
+	else if (result > 0.2 && result <= 0.5)
+		push_swap_medium(stack_a, stack_b);
+	else
+		push_swap_complex (stack_a, stack_b);
 }

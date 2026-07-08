@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars-utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/02 11:28:56 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 18:39:08 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ int	verifynumb(char *str)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '-' || str[i] == '+')
-			return (0);
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
+		if (str[i] == ' ')
+			i++;
+		else
+		{
+			if (str[i] == '-' || str[i] == '+')
+				return (0);
+			if (str[i] < '0' || str[i] > '9')
+				return (0);
+			i++;
+		}
 	}
 	return (1);
 }
@@ -67,6 +72,31 @@ int	checkdup(t_node *stack, int nb)
 		if (current -> value == nb)
 			return (0);
 		current = current -> next;
+	}
+	return (1);
+}
+
+int	parse_string(char *str, t_node **stack_a)
+{
+	int		i;
+	long	nb;
+	t_node	*node;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] == ' ')
+			i++;
+		if (str[i] != '\0')
+		{
+			nb = ft_atoi(&str[i]);
+			node = new_node(nb);
+			if (!node || (int)nb != nb || !checkdup(*stack_a, nb))
+				return (parsing_error(stack_a));
+			add_back(stack_a, node);
+			while (str[i] != ' ' && str[i] != '\0')
+				i++;
+		}
 	}
 	return (1);
 }

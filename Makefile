@@ -3,17 +3,17 @@
 #                                                          :::      ::::::::   #
 #   Makefile                                             :+:      :+:    :+:   #
 #                                                      +:+ +:+         +:+     #
-#   By: tde-alme <tde-alm@student.42porto.com>       +#+  +:+       +#+        #
+#   By: josmorei <josmorei@student.42porto.com>      +#+  +:+       +#+        #
 #                                                  +#+#+#+#+#+   +#+           #
-#   Created: 0026/06/16 16:25:08 by #+#                 #+#    #+#             #
-#   Updated: 2026/07/01 15:07:24 by tde-alme           ###   ########.fr       #
+#   Created: 0026/06/16 16:25:08 by +#                  #+#    #+#             #
+#   Updated: 2026/07/08 12:10:44 by josmorei           ###   ########.fr       #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRC = main_tester.c list_movs.c push.c rotate.c reverse_rotate.c swap.c sort_two_or_three.c \
-	stack_size.c calculate_costs.c push_swap.c reorder.c swap_cheapest.c
+	stack_size.c calculate_costs.c push_swap_simple.c reorder.c swap_cheapest.c
 
 OFILES = $(SRC:.c=.o)
 

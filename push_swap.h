@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/07 16:20:01 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 18:44:53 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	push_swap_simple(t_node **stack_a, t_node **stack_b);
 void	fix_top(t_node **stack_a);
 float	check_disorder(t_node **stack_a);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		parse_string(char *str, t_node **stack_a);
 
 
 
