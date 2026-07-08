@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/03 19:20:11 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/08 11:35:45 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	int		flag;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	flag = 0;
 	if (argc < 2)
 		return (0);
@@ -33,13 +34,13 @@ int	main(int argc, char **argv)
 		else if (size == 3)
 			sort_three(&stack_a);
 		else if (size > 3)
-			algorithm(*stack_a, flag);
+			algorithm(*stack_a, *stack_b, flag);
 	}
 	freestack(&stack_a);
 	return (1);
 }
 
-static void	algorithm(t_node stack_a, t_node stack_b int flag)
+static void	algorithm(t_node stack_a, t_node stack_b, int flag)
 {
 	if (flag == 1)
 		return ;
