@@ -82,6 +82,7 @@ void	push_swap_simple(t_data *data);
 void	fix_top(t_data *data);
 float	check_disorder(t_data *data);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		parse_string(char *str, t_node **stack_a);
 
 void	print_stack(t_node *stack); // apagar, para testes
 
