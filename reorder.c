@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:59:41 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:21:15 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:32:46 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	push_all_to_b(t_data *data)
 
 int	find_position(t_data *data, int value)
 {
-	t_node *first;
-	int pos;
-	int	size;
+	t_node	*first;
+	int		pos;
+	int		size;
 
 	first = data->stack_a;
 	size = stack_size(data->stack_a);
@@ -53,6 +53,6 @@ int	find_position(t_data *data, int value)
 		}
 		first = first->next;
 		pos++;
-	} 
-   return (0);
+	}
+	return (0);
 }

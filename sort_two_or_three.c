@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 14:31:36 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 14:29:25 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:36:02 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	sort_two(t_data *data)
 
 void	sort_three(t_data *data)
 {
-	int	fst, sec, third;
+	int	fst;
+	int	sec;
+	int	third;
 
 	fst = data->stack_a->value;
 	sec = data->stack_a->next->value;

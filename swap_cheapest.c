@@ -6,11 +6,11 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 13:59:30 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:22:49 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:37:31 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "push_swap.h"
 
 static int	find_pos_b(t_node *stack_b, t_node *change)
 {

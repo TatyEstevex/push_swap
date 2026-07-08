@@ -6,26 +6,29 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:13:35 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 15:48:39 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:40:22 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_stack(t_node *stack)
+void	print_stack(t_node *stack)
 {
-    t_node *first = stack;
-    if (!stack)
-        return ;
-    do
-    {
-        printf("%d\n", stack->value);
-        stack = stack->next;
-    } while (stack != first);
+	t_node	*first;
+
+	first = stack;
+	if (!stack)
+		return ;
+	do
+	{
+	printf("%d\n", stack->value);
+	stack = stack->next;
+	} while (stack != first);
 }
-int main(void)
+
+int	main(void)
 {
-	t_data data;
+	t_data	data;
 
 	data.stack_a = NULL;
 	data.stack_b = NULL;
@@ -41,7 +44,6 @@ int main(void)
 	data.count_rra = 0;
 	data.count_rrb = 0;
 	data.count_rrr = 0;
-
 	add_back(&data.stack_a, new_node(-24121));
 	add_back(&data.stack_a, new_node(-20966));
 	add_back(&data.stack_a, new_node(-78336));
@@ -553,5 +555,5 @@ int main(void)
 	printf("--- depois push_swap_simple ---\n");
 	print_stack(data.stack_a);
 	printf("movimentos: %d\n", data.moves);
-    return (0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:28:00 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:19:01 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:55:38 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_swap_simple(t_data *data)
 	fix_top(data);
 }
 
-void	fix_top (t_data *data)
+void	fix_top(t_data *data)
 {
 	t_node	*current;
 	t_node	*min;
@@ -38,7 +38,7 @@ void	fix_top (t_data *data)
 	min = data->stack_a;
 	pos = 1;
 	min_pos = 0;
-	size = stack_size(data->stack_a);
+	size= stack_size(data->stack_a);
 	while (current != data->stack_a)
 	{
 		if (current->value < min->value)
