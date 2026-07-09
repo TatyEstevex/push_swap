@@ -3,32 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:28:00 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 11:28:54 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:31:23 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int g_moves = 0;
+//apagar print_stack
 
-void	push_swap_simple(t_node **stack_a, t_node **stack_b)
+void    print_stack(t_node *stack)
 {
-	while (stack_size(stack_b) > 0)
-	{
-		calculate_costs(stack_a, stack_b);
-		printf("cheapest: %d cost: %d\n", find_cheapest(stack_b)->value, find_cheapest(stack_b)->cost);
-		printf("pos_a: %d\n", find_position(stack_a, find_cheapest(stack_b)->value));
-		swap_cheapest(stack_a, stack_b);
-		printf("--- a depois swap ---\n");
-		print_stack(*stack_a);
-	}
-	fix_top(stack_a);
+    t_node  *current;
+
+    if (!stack)
+        return ;
+    current = stack;
+    while (current->next != stack)
+    {
+        printf("%d\n", current->value);
+        current = current->next;
+    }
+    printf("%d\n", current->value);
 }
 
-void	fix_top(t_node **stack_a)
+void	push_swap_simple(t_data *data)
+{
+	while (stack_size(data->stack_b) > 0)
+	{
+		calculate_costs(data);
+		swap_cheapest(data);
+		printf("--- a depois swap ---\n");
+		print_stack(data->stack_a);
+	}
+	fix_top(data);
+}
+
+void	fix_top(t_data *data)
 {
 	t_node	*current;
 	t_node	*min;
@@ -36,14 +49,14 @@ void	fix_top(t_node **stack_a)
 	int		min_pos;
 	int		size;
 
-	if (!stack_a || !*stack_a)
+	if (!data || !data->stack_a)
 		return ;
-	current = (*stack_a)->next;
-	min = *stack_a;
+	current = data->stack_a->next;
+	min = data->stack_a;
 	pos = 1;
 	min_pos = 0;
-	size = stack_size(stack_a);
-	while (current != *stack_a)
+	size= stack_size(data->stack_a);
+	while (current != data->stack_a)
 	{
 		if (current->value < min->value)
 		{
@@ -53,5 +66,5 @@ void	fix_top(t_node **stack_a)
 		current = current->next;
 		pos++;
 	}
-	rotate_a(stack_a, min_pos, size);
+	rotate_a(data, min_pos, size);
 }

@@ -3,44 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   reorder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:59:41 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/07 16:35:41 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:32:46 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_all_to_b(t_node **stack_a, t_node **stack_b)
+void	push_all_to_b(t_data *data)
 {
 	int	t;
 
-	t = stack_size(stack_a);
+	t = stack_size(data->stack_a);
 	if (t <= 3)
 	{
 		if (t == 3)
-			sort_three(stack_a);
+			sort_three(data);
 		else if (t == 2)
-			sort_two(stack_a);
+			sort_two(data);
 		return ;
 	}
 	while (t > 3)
 	{
-		pb(stack_a, stack_b);
+		pb(data);
 		t--;
 	}
-	sort_three(stack_a);
+	sort_three(data);
 }
 
-int	find_position(t_node **stack_a, int value)
+int	find_position(t_data *data, int value)
 {
 	t_node	*first;
 	int		pos;
+	int		size;
 
-	first = *stack_a;
+	first = data->stack_a;
+	size = stack_size(data->stack_a);
 	pos = 0;
-	do {
+	while (pos < size)
+	{
 		if (first->value < value && value <= first->next->value)
 			return (pos + 1);
 		if (first->value > first->next->value)
@@ -50,6 +53,6 @@ int	find_position(t_node **stack_a, int value)
 		}
 		first = first->next;
 		pos++;
-	} while (first != *stack_a);
+	}
 	return (0);
 }

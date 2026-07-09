@@ -3,49 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   sort_two_or_three.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 14:31:36 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 11:29:03 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 16:36:02 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_node **stack_a)
+void	sort_two(t_data *data)
 {
-	if ((*stack_a)->value > (*stack_a)->next->value)
-		sa(stack_a);
+	if (data->stack_a->value > data->stack_a->next->value)
+		sa(data);
 }
 
-void	sort_three(t_node **stack_a)
+void	sort_three(t_data *data)
 {
-	t_node	*sec;
-	t_node	*third;
+	int	fst;
+	int	sec;
+	int	third;
 
-	sec = (*stack_a)->next;
-	third = (*stack_a)->prev;
-	if (((*stack_a)->value < sec->value) && (sec->value < third->value))
-		return ;
-	else if (((*stack_a)->value > third->value)
-		&& (sec->value > (*stack_a)->value) && (third->value < sec->value))
-		rra(stack_a);
-	else if (((*stack_a)->value < sec->value) && (sec->value > third->value)
-		&& ((*stack_a)->value < third->value))
+	fst = data->stack_a->value;
+	sec = data->stack_a->next->value;
+	third = data->stack_a->prev->value;
+	if (fst > sec && fst < third)
+		sa(data);
+	else if (fst > sec && sec < third)
+		ra(data);
+	else if (fst > sec)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		sa(data);
+		rra(data);
 	}
-	else if (((*stack_a)->value > sec->value) && (sec->value < third->value)
-		&& ((*stack_a)->value < third->value))
-		sa(stack_a);
-	else if (((*stack_a)->value > sec->value) && (sec->value < third->value)
-		&& ((*stack_a)->value > third->value))
-		ra(stack_a);
-	else if (((*stack_a)->value > sec->value) && (sec->value > third->value)
-		&& ((*stack_a)->value > third->value))
+	else if (sec > third && fst < third)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		sa(data);
+		ra(data);
 	}
+	else if (sec > third)
+		rra(data);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_movs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:11:37 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/02 11:28:42 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/08 12:16:13 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-t_node	*remove_node(t_node **stack) // remove as ligacoes do no, e nao o no em si
+t_node	*remove_node(t_node **stack)
 {
 	t_node	*node;
 

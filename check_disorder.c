@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   check_disorder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/26 12:10:44 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:33:35 by tde-alme         ###   ########.fr       */
+/*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
+/*   Updated: 2026/07/09 10:47:37 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_data *data)
+float	check_disorder(t_data *data)
 {
-	if (!data->stack_a)
-		return ;
-	data->stack_a = data->stack_a->prev;
-	write(1, "rra\n", 4);
-	data->moves++;
-	data->count_rra++;
-}
+	t_node	*current;
+	int		mistakes;
+	int		pairs;
+	int		size;
 
-void	rrb(t_data *data)
-{
-	if (!data->stack_b)
-		return ;
-	data->stack_b = data->stack_b->prev;
-	write(1, "rrb\n", 4);
-	data->moves++;
-	data->count_rrb++;
-}
-
-void	rrr(t_data *data)
-{
-	rra(data);
-	rrb(data);
-	data->moves--;
-	data->count_rrr++;
+	size = stack_size(data->stack_a);
+	if (size < 2)
+		return (0.0);
+	mistakes = 0;
+	pairs = size - 1;
+	current = data->stack_a;
+	while (size -1 > 0)
+	{
+		if (current -> value > current -> next -> value)
+			mistakes++;
+		current = current -> next;
+		size--;
+	}
+	return ((float) mistakes / pairs);
 }
