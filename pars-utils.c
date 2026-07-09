@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars-utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/08 18:39:08 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:13:13 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	checkdup(t_node *stack, int nb)
 	t_node	*current;
 
 	if (!stack)
-		return (0);
+		return (1);
 	if (stack -> value == nb)
 		return (0);
 	current = stack -> next;
@@ -92,11 +92,26 @@ int	parse_string(char *str, t_node **stack_a)
 			nb = ft_atoi(&str[i]);
 			node = new_node(nb);
 			if (!node || (int)nb != nb || !checkdup(*stack_a, nb))
-				return (parsing_error(stack_a));
+				return (0);
 			add_back(stack_a, node);
 			while (str[i] != ' ' && str[i] != '\0')
 				i++;
 		}
 	}
 	return (1);
+}
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (n <= 0)
+		return (0);
+	while (i < (n - 1) && s1[i])
+	{
+		if (s1[i] != s2[i] || s1[i] == '\0')
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		i++;
+	}
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

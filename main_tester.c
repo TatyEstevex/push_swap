@@ -6,25 +6,11 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:13:35 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:40:22 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:43:41 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_node *stack)
-{
-	t_node	*first;
-
-	first = stack;
-	if (!stack)
-		return ;
-	do
-	{
-	printf("%d\n", stack->value);
-	stack = stack->next;
-	} while (stack != first);
-}
 
 int	main(void)
 {

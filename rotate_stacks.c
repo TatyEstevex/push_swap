@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:25:01 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:38:46 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/09 10:43:43 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	rotate_a(t_data *data, int pos, int size_a)
 	}
 }
 
-void	rotate_both(t_data *data, int pos_a, int pos_b, int size_a, int size_b)
+void	rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes)
 {
 	while (pos_a > 0 && pos_b > 0)
 	{
@@ -62,15 +62,14 @@ void	rotate_both(t_data *data, int pos_a, int pos_b, int size_a, int size_b)
 		pos_a--;
 		pos_b--;
 	}
-	rotate_a(data, pos_a, size_a);
-	rotate_b(data, pos_b, size_b);
+	rotate_a(data, pos_a, sizes.a);
+	rotate_b(data, pos_b, sizes.b);
 }
 
-void	reverse_rotate_both(t_data *data, int pos_a, int pos_b, int size_a,
-		int size_b)
+void	reverse_rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes)
 {
-	pos_a = size_a - pos_a;
-	pos_b = size_b - pos_b;
+	pos_a = sizes.a - pos_a;
+	pos_b = sizes.b - pos_b;
 	while (pos_a > 0 && pos_b > 0)
 	{
 		rrr(data);

@@ -3,10 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_complex.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 12:12:03 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/08 12:31:52 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:29:22 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void    push_swap_complex(t_data *data)
+{
+    (void)data;
+}

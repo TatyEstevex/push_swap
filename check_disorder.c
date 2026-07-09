@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/08 20:01:15 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/09 10:47:37 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ float	check_disorder(t_data *data)
 		return (0.0);
 	mistakes = 0;
 	pairs = size - 1;
-	current = *stack_a;
+	current = data->stack_a;
 	while (size -1 > 0)
 	{
 		if (current -> value > current -> next -> value)
