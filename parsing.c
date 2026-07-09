@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/09 11:48:35 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/09 19:05:18 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int  check_flag(char **argv);
-static char *ft_strchr(const char *s, int c);
+static	int	check_flag(char **argv);
+static	char	*ft_strchr(const char *s, int c);
 
 static int	parsing_error(t_data *data)
 {
@@ -73,16 +73,17 @@ void	freestack(t_node **stack)
 
 static int	check_flag(char **argv)
 {
-	if (ft_strncmp(argv[1], "--simple", 8) == 0)
+	if (ft_strncmp(argv[1], "--simple", 9) == 0 && argv[1][8] == '\0')
 		return (1);
-	else if (ft_strncmp(argv[1], "--medium", 8) == 0)
+	else if (ft_strncmp(argv[1], "--medium", 9) == 0 && argv[1][8] == '\0')
 		return (2);
-	else if (ft_strncmp(argv[1], "--complex", 8) == 0)
+	else if (ft_strncmp(argv[1], "--complex", 10) == 0 && argv[1][9] == '\0')
 		return (3);
-	else if (ft_strncmp(argv[1], "--adaptive", 10) == 0)
+	else if (ft_strncmp(argv[1], "--adaptive", 11) == 0 && argv[1][10] == '\0')
 		return (4);
 	return (0);
 }
+
 static char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
@@ -98,3 +99,4 @@ static char	*ft_strchr(const char *s, int c)
 		return ((char *)(s + i));
 	return (NULL);
 }
+

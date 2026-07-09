@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_simple.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:28:00 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:55:38 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/09 20:25:57 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_swap_simple(t_data *data)
 		calculate_costs(data);
 		swap_cheapest(data);
 		printf("--- a depois swap ---\n");
-		print_stack(data->stack_a);
+		print_stack(data->stack_a); // apagar para testes
 	}
 	fix_top(data);
 }
@@ -38,7 +38,7 @@ void	fix_top(t_data *data)
 	min = data->stack_a;
 	pos = 1;
 	min_pos = 0;
-	size= stack_size(data->stack_a);
+	size = stack_size(data->stack_a);
 	while (current != data->stack_a)
 	{
 		if (current->value < min->value)
