@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/10 13:44:32 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:09:20 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		else if (data.size_a == 3)
 			sort_three(&data);
 		else if (data.size_a > 3)
-			algorithm(&data, 1); //alterar a flag, tive que por um para forcao o simples
+			algorithm(&data, 2); //alterar a flag, tive que por um para forcao o simples
 	}
 	print_stack(data.stack_a);
 	freestack(&data.stack_a);
