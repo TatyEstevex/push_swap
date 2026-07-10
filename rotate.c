@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 16:16:39 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:34:48 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:50:22 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rr(t_data *data)
 {
 	ra(data);
 	rb(data);
-	write(1, "rr\n", 3);
+	//write(1, "rr\n", 3);
 	data->moves--;
 	data->count_rr++;
 }

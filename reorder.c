@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:59:41 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:32:46 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:34:47 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_all_to_b(t_data *data)
 {
 	int	t;
 
-	t = stack_size(data->stack_a);
+	t = data->size_a;
 	if (t <= 3)
 	{
 		if (t == 3)
@@ -40,7 +40,7 @@ int	find_position(t_data *data, int value)
 	int		size;
 
 	first = data->stack_a;
-	size = stack_size(data->stack_a);
+	size = data->size_a;
 	pos = 0;
 	while (pos < size)
 	{

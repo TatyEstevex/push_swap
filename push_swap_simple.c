@@ -3,25 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_simple.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:28:00 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/09 20:25:57 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:54:58 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//apagar print_stack
+
+void    print_stack(t_node *stack)
+{
+    t_node  *current;
+
+    if (!stack)
+        return ;
+    current = stack;
+    while (current->next != stack)
+    {
+        //printf("%d\n", current->value);
+        current = current->next;
+    }
+    //printf("%d\n", current->value);
+}
+
 void	push_swap_simple(t_data *data)
 {
-	while (stack_size(data->stack_b) > 0)
+	push_all_to_b(data);
+	while (data->size_b > 0)
 	{
 		calculate_costs(data);
 		swap_cheapest(data);
-		printf("--- a depois swap ---\n");
-		print_stack(data->stack_a); // apagar para testes
+		//printf("--- a depois swap ---\n");
+		//print_stack(data->stack_a);
 	}
 	fix_top(data);
+	//printf("total movimentos %i\n", data->moves);
 }
 
 void	fix_top(t_data *data)
@@ -38,7 +57,7 @@ void	fix_top(t_data *data)
 	min = data->stack_a;
 	pos = 1;
 	min_pos = 0;
-	size = stack_size(data->stack_a);
+	size= stack_size(data->stack_a);
 	while (current != data->stack_a)
 	{
 		if (current->value < min->value)
@@ -49,5 +68,5 @@ void	fix_top(t_data *data)
 		current = current->next;
 		pos++;
 	}
-	rotate_a(data, min_pos, size);
+	rotate_a(data, min_pos);
 }

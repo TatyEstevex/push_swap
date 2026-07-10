@@ -47,6 +47,7 @@ void	ss(t_data *data) // swap top 2 a & b
 {
 	sa(data);
 	sb(data);
+	//write(1, "ss\n", 3);
 	data->moves--;
 	data->count_ss++;
 }

@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 15:13:35 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/09 12:43:41 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:35:20 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -531,11 +531,11 @@ int	main(void)
 	add_back(&data.stack_a, new_node(91301));
 	add_back(&data.stack_a, new_node(-36343));
 	push_all_to_b(&data);
-	printf("--- depois push_all_to_b ---\n");
-	printf("movimentos: %d\n", data.moves);
-	print_stack(data.stack_a);
-	printf("--- stack b ---\n");
-	print_stack(data.stack_b);
+	// printf("--- depois push_all_to_b ---\n");
+	// printf("movimentos: %d\n", data.moves);
+	//print_stack(data.stack_a);
+	//printf("--- stack b ---\n");
+	//print_stack(data.stack_b);
 	push_swap_simple(&data);
 	printf("movimentos: %d\n", data.moves);
 	printf("--- depois push_swap_simple ---\n");

@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/09 12:49:00 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:44:32 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,23 @@ static void	algorithm(t_data *data, int flag);
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		size;
 	int		flag;
 
-	data.stack_a = NULL;
-	data.stack_b = NULL;
 	flag = 0;
+	initialize_struct(&data);
 	if (argc < 2)
 		return (0);
 	if (parsing(argc, argv, &data, &flag) == 0)
 		return (0);
+	data.size_a = stack_size(data.stack_a);
+	data.size_b = 0;
 	if (check_disorder(&data) > 0)
 	{
-		size = stack_size(data.stack_a);
-		if (size == 2)
+		if (data.size_a == 2)
 			sort_two(&data);
-		else if (size == 3)
+		else if (data.size_a == 3)
 			sort_three(&data);
-		else if (size > 3)
+		else if (data.size_a > 3)
 			algorithm(&data, 1); //alterar a flag, tive que por um para forcao o simples
 	}
 	print_stack(data.stack_a);

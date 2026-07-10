@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/09 11:14:07 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:50:38 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ typedef struct s_node
 	int				cost;
 }	t_node;
 
-typedef struct s_sizes
-{
-    int    a; //size_a
-    int    b; //size_b
-}    t_sizes;
-
 typedef struct s_data
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	int		size_a;
+	int		size_b;
 	int		moves;
 	int		count_sa;
 	int		count_sb;
@@ -53,6 +49,7 @@ typedef struct s_data
 
 t_node	*new_node(int value);
 t_node	*remove_node(t_node **stack);
+void	initialize_struct(t_data *data);
 int 	parsing(int argc, char **argv, t_data *data, int *flag);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
@@ -77,10 +74,10 @@ int		cost_a(int pos_a, int size_a);
 int		cost_b(int pos_b, int size_b);
 void	calculate_costs(t_data *data);
 t_node	*find_cheapest(t_data *data);
-void    rotate_b(t_data *data, int pos, int size_b);
-void    rotate_a(t_data *data, int pos, int size_a);
-void    rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes);
-void    reverse_rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes);
+void    rotate_b(t_data *data, int pos);
+void    rotate_a(t_data *data, int pos);
+void    rotate_both(t_data *data, int pos_a, int pos_b);
+void    reverse_rotate_both(t_data *data, int pos_a, int pos_b);
 void	swap_cheapest(t_data *data);
 void	push_swap_simple(t_data *data);
 void	fix_top(t_data *data);

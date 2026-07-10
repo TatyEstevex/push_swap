@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_disorder.c                                   :+:      :+:    :+:   */
+/*   initialize_struct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/10 10:57:10 by tde-alme         ###   ########.fr       */
+/*   Created: 2026/07/10 11:43:44 by tde-alme          #+#    #+#             */
+/*   Updated: 2026/07/10 11:51:10 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	check_disorder(t_data *data)
+void	initialize_struct(t_data *data)
 {
-	t_node	*current;
-	int		mistakes;
-	int		pairs;
-	int		size;
-
-	size = data -> size_a;
-	if (size < 2)
-		return (0.0);
-	mistakes = 0;
-	pairs = size;
-	current = data->stack_a;
-	while ((size - 1) > 0)
-	{
-		if (current -> value > current -> next -> value)
-			mistakes++;
-		current = current -> next;
-		size--;
-	}
-	return ((float) mistakes / pairs);
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->size_a = 0;
+	data->size_b = 0;
+	data->moves = 0;
+	data->count_sa = 0;
+	data->count_sb = 0;
+	data->count_ss = 0;
+	data->count_pa = 0;
+	data->count_pb = 0;
+	data->count_ra = 0;
+	data->count_rb = 0;
+	data->count_rr = 0;
+	data->count_rra = 0;
+	data->count_rrb = 0;
+	data->count_rrr = 0;
 }

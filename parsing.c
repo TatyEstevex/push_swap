@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/09 19:05:18 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:35:36 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	parsing(int argc, char **argv, t_data *data, int *flag)
 	i = 1;
 	if (*flag > 0)
 		i = 2;
-	printf("flag: %d, i: %d\n", *flag, i);
+	//printf("flag: %d, i: %d\n", *flag, i);
 	while (i < argc)
 	{
-		printf("a verificar: %s\n", argv[i]);
+		//printf("a verificar: %s\n", argv[i]);
 		if (verifynumb(argv[i]) == 0)
 			return (parsing_error(data));
 		if (ft_strchr(argv[i], ' ') && !parse_string(argv[i], &data->stack_a))
