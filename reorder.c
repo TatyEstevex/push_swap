@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reorder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 11:59:41 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/10 11:34:47 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/14 12:39:16 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	push_all_to_b(t_data *data)
 	sort_three(data);
 }
 
-int	find_position(t_data *data, int value)
+int	find_position(t_data *data, int index)
 {
 	t_node	*first;
 	int		pos;
@@ -44,11 +44,11 @@ int	find_position(t_data *data, int value)
 	pos = 0;
 	while (pos < size)
 	{
-		if (first->value < value && value <= first->next->value)
+		if (first->index < index && index <= first->next->index)
 			return (pos + 1);
-		if (first->value > first->next->value)
+		if (first->index > first->next->index)
 		{
-			if (value > first->value || value <= first->next->value)
+			if (index > first->index || index <= first->next->index)
 				return (pos + 1);
 		}
 		first = first->next;

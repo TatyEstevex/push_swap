@@ -3,10 +3,10 @@
 #                                                          :::      ::::::::   #
 #   Makefile                                             :+:      :+:    :+:   #
 #                                                      +:+ +:+         +:+     #
-#   By: tde-alme <tde-alm@student.42porto.com>       +#+  +:+       +#+        #
+#   By: tde-alme <tde-alme@student.42porto.com>      +#+  +:+       +#+        #
 #                                                  +#+#+#+#+#+   +#+           #
-#   Created: 0026/06/16 16:25:08 by #                   #+#    #+#             #
-#   Updated: 2026/07/10 11:48:30 by tde-alme           ###   ########.fr       #
+#   Created: 0026/06/16 16:25:08 by #+#                 #+#    #+#             #
+#   Updated: 2026/07/14 12:32:52 by tde-alme           ###   ########.fr       #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 SRC = main.c list_movs.c push.c rotate.c reverse_rotate.c swap.c sort_two_or_three.c \
 	stack_size.c calculate_costs.c reorder.c swap_cheapest.c rotate_stacks.c \
 	benchmark.c check_disorder.c pars-utils.c parsing.c push_swap_adaptve.c push_swap_complex.c \
-	push_swap_medium.c push_swap_simple.c initialize_struct.c
+	push_swap_medium.c push_swap_simple.c initialize_struct.c index.c 
 
 OFILES = $(SRC:.c=.o)
 
