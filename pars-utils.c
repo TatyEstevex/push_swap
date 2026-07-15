@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 18:29:07 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/09 19:05:54 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/15 17:19:28 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,14 @@ int	verifynumb(char *str)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] == ' ')
-		{
-		}
-		else if (str[i] == '-' || str[i] == '+')
+		if (str[i] == '-' || str[i] == '+')
 		{
 			if (i > 0 && str[i - 1] != ' ')
 				return (0);
-			if (str[i + 1] < '0' || str[i + 1] > '9')
+			if ((str[i + 1] < '0' || str[i + 1] > '9') && str[i] != ' ')
 				return (0);
 		}
-		else if (str[i] < '0' || str[i] > '9')
+		else if ((str[i] < '0' || str[i] > '9') && str[i] != ' ')
 			return (0);
 		i++;
 	}
@@ -93,7 +90,7 @@ int	parse_string(char *str, t_node **stack_a)
 			nb = ft_atoi(&str[i]);
 			node = new_node(nb);
 			if (!node || (int)nb != nb || !checkdup(*stack_a, nb))
-				return (0);
+				return (free(node), 0);
 			add_back(stack_a, node);
 			while (str[i] != ' ' && str[i] != '\0')
 				i++;

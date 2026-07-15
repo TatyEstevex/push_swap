@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/15 12:21:05 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 19:13:39 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,14 @@ typedef struct s_data
 	int		count_rra;
 	int		count_rrb;
 	int		count_rrr;
+	int		flag;
+	int		bench;
 }	t_data;
 
 t_node	*new_node(int value);
 t_node	*remove_node(t_node **stack);
 void	initialize_struct(t_data *data);
-int 	parsing(int argc, char **argv, t_data *data, int *flag);
+int 	parsing(int argc, char **argv, t_data *data);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);

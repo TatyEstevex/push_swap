@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_simple.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:28:00 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/15 14:28:35 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 16:30:30 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void	push_swap_simple(t_data *data)
 	{
 		calculate_costs(data);
 		swap_cheapest(data);
-		printf("--- a depois swap ---\n");
+		//printf("--- a depois swap ---\n");
 		print_stack(data->stack_a);
 	}
 	fix_top(data);
-	printf("total movimentos %i\n", data->moves);
+	//printf("total movimentos %i\n", data->moves);
 }
 

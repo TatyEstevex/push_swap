@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_struct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:43:44 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/10 11:51:10 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:53:11 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	initialize_struct(t_data *data)
 	data->count_rra = 0;
 	data->count_rrb = 0;
 	data->count_rrr = 0;
+	data->flag = 0;
+	data->bench = 0;
 }
