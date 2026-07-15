@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/14 14:42:08 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 14:28:08 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ int	main(int argc, char **argv)
 		else if (data.size_a == 3)
 			sort_three(&data);
 		else if (data.size_a > 3)
-			algorithm(&data, 3); //alterar a flag, tive que por um para forcao o simples
+			algorithm(&data, 1); //alterar a flag, tive que por um para forcao o simples
 	}
-	printf("Cheguei aqui!\n");
-	print_stack(data.stack_a);
-	printf("movimentos : %i \n", data.moves);
+	//printf("Cheguei aqui!\n");
+	//print_stack(data.stack_a);
+	//printf("movimentos : %i \n", data.moves);
 	freestack(&data.stack_a);
 	return (1);
 }

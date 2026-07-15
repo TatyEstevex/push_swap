@@ -6,7 +6,7 @@
 /*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 12:10:44 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 16:33:35 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 16:01:52 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,28 @@ void	rrb(t_data *data)
 	data->moves++;
 	data->count_rrb++;
 }
+void	rra_silent(t_data *data)
+{
+	if (!data->stack_a)
+		return ;
+	data->stack_a = data->stack_a->prev;
+	data->moves++;
+	data->count_rra++;
+}
 
+void	rrb_silent(t_data *data)
+{
+	if (!data->stack_b)
+		return ;
+	data->stack_b = data->stack_b->prev;
+	data->moves++;
+	data->count_rrb++;
+}
 void	rrr(t_data *data)
 {
-	rra(data);
-	rrb(data);
+	rra_silent(data);
+	rrb_silent(data);
+	write(1, "rrr\n", 4);
 	data->moves--;
 	data->count_rrr++;
 }

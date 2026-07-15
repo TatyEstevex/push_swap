@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_cheapest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 13:59:30 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/14 12:38:33 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 12:16:04 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	swap_cheapest(t_data *data)
 	change = find_cheapest(data);
 	pos_b = find_pos_b(data->stack_b, change);
 	pos_a = find_position(data, change->index);
-	//printf("inserir %d na posicao %d\n", change->index, pos_a);
+	//printf("inserir value=%d index=%d na posicao %d\n", change->value, change->index, pos_a);
 	if (pos_a <= data->size_a / 2 && pos_b <= data->size_b / 2)
 		rotate_both(data, pos_a, pos_b);
 	else if (pos_a > data->size_a / 2 && pos_b > data->size_b / 2)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/14 13:02:25 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/15 12:21:05 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ float	check_disorder(t_data *data);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		parse_string(char *str, t_node **stack_a);
 void    push_swap_medium(t_data *data);
+void	push_chunk(t_data *data);
 void    push_swap_complex(t_data *data);
 void    push_swap_adaptive(t_data *data);
 int     verifynumb(char *str);
