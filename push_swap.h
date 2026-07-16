@@ -6,7 +6,7 @@
 /*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/15 19:13:39 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/16 19:20:53 by josmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,9 @@ void	init_index_stack(t_data *data);
 void	push_to_b(t_data *data);
 int		ft_sqrt(int n);
 t_node	*find_min_unindexed(t_data *data);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 void	print_stack(t_node *stack); // apagar, para testes
 
