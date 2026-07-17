@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 20:07:47 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/16 19:08:09 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:37:05 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
-

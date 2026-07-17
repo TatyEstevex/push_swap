@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 19:06:28 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/16 19:25:29 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/17 13:03:54 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,20 @@ static void	print_individual_counts(t_data *data)
 	print_rotations(data);
 }
 
+static void	print_stratey(t_data *data)
+{
+	ft_putstr_fd("[bench] strategy: ", 2);
+	if (data->flag == 1)
+		ft_putstr_fd("Simple\n", 2);
+	else if (data->flag == 2)
+		ft_putstr_fd("Medium\n", 2);
+	else if (data->flag == 3)
+		ft_putstr_fd("Complex\n", 2);
+	else
+		ft_putstr_fd("Adaptive O(n * log n)\n", 2);
+
+}
+
 void	print_benchmark(t_data *data)
 {
 	float	disorder;
@@ -52,7 +66,7 @@ void	print_benchmark(t_data *data)
 
 	if (!data->bench)
 		return ;
-	disorder = check_disorder(data) * 100.0;
+	disorder = data->initial_disorder * 100.0;
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putnbr_fd((int)disorder, 2);
 	ft_putchar_fd('.', 2);
@@ -61,7 +75,7 @@ void	print_benchmark(t_data *data)
 		ft_putchar_fd('0', 2);
 	ft_putnbr_fd(dec_part, 2);
 	ft_putstr_fd("%\n", 2);
-	ft_putstr_fd("[bench] strategy: Adaptive O(n * log n)\n", 2);
+	print_stratey(data);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(data->moves, 2);
 	ft_putchar_fd('\n', 2);

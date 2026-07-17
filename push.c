@@ -28,7 +28,6 @@ void	pa(t_data *data)
 	data->count_pa++;
 	data->size_a++;
 	data->size_b--;
-		// acrescentar um no stack a quando movimento para a a, e no b a mesma coisa, e retirar do que sai
 }
 
 void	pb(t_data *data)

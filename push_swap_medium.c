@@ -32,7 +32,10 @@ void	push_chunk(t_data *data)
 
 	init_index_stack(data);
 	size = stack_size(data->stack_a);
-	chunk_size = (size / 100) * 7 + 13;
+	chunk_size = (size / 6);
+		if (chunk_size < 1)
+	chunk_size = 1;
+	//chunk_size = (size / 100) * 7 + 13;
 	current_limit = chunk_size;
 	while (stack_size(data->stack_a) > 3)
 	{
@@ -45,30 +48,6 @@ void	push_chunk(t_data *data)
 		else
 			ra(data);
 	}
+	sort_three(data);
 }
 
-// void	index_stack(t_data *data)
-// {
-// 	t_node	*current;
-// 	t_node	*compare;
-// 	int		size_out;
-// 	int		size_in;
-// 	int		count;
-
-// 	size_out = stack_size(data->stack_a);
-// 	current = data->stack_a;
-// 	while (size_out-- > 0)
-// 	{
-// 		count = 0;
-// 		compare = data->stack_a;
-// 		size_in = stack_size(data->stack_a);
-// 		while (size_in-- > 0)
-// 		{
-// 			if (compare->value < current->value)
-// 				count++;
-// 			compare = compare->next;
-// 		}
-// 		current->index = count;
-// 		current = current->next;
-// 	}
-// }

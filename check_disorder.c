@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_disorder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 12:02:41 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/16 18:18:16 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:41:23 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

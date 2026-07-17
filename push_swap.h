@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josmorei <josmorei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/16 19:20:53 by josmorei         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:41:20 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data
 	int		count_rrr;
 	int		flag;
 	int		bench;
+	float	initial_disorder;
 }	t_data;
 
 t_node	*new_node(int value);
@@ -101,6 +102,7 @@ t_node	*find_min_unindexed(t_data *data);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	print_benchmark(t_data *data);
 
 void	print_stack(t_node *stack); // apagar, para testes
 
