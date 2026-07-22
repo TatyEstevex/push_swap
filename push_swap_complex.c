@@ -6,54 +6,73 @@
 /*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 12:12:03 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/17 14:41:58 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/20 14:23:20 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sqrt(int n)
+int ft_bits (t_data *data)
+{
+	int		contador;
+	int		valor;
+
+	contador = 0;
+	valor = 1;
+	while (valor <= (data->size_a - 1))
+	{
+		valor = valor * 2;
+		contador++;
+	}
+	return(contador);
+}
+
+void radix_pass(t_data *data, int bit)
 {
 	int	i;
+	int	size;
 
-	i = 1;
-	while (i * i <= n)
-		i++;
-	return (i - 1);
-}
-void	push_to_b(t_data *data)
-{
-	int	chunk_size;
-	int	chunk;
-
-	chunk_size = ft_sqrt(data->size_a) * 2;
-	chunk = 0;
-	while (data->size_a > 3)
+	size = data->size_a;
+	i = 0;
+	while (i < size)
 	{
-		if (data->stack_a->index <= chunk)
-		{
+		if (((data->stack_a->index >> bit) & 1) == 0)
 			pb(data);
-			chunk++;
-		}
-		else if (data->stack_a->index <= chunk + chunk_size)
-		{
-			pb(data);
-			chunk++;
-		}
 		else
 			ra(data);
+		i++;
 	}
 }
 
 void	push_swap_complex(t_data *data)
 {
+	int bits;
+	int b;
+	int	size_b;
+
 	init_index_stack(data);
-	push_to_b(data);
-	sort_three(data);
-	while (data->size_b > 0)
+	bits = ft_bits(data);
+	b = 0;
+	while (b < bits)
 	{
-		calculate_costs(data);
-		swap_cheapest(data);
+		radix_pass(data, b);
+		size_b = data->size_b;
+	if (b == bits - 1)
+		{
+			while (data->size_b > 0)
+				pa(data);
+		}
+		else
+		{
+			while (size_b > 0)
+			{
+				if (((data->stack_b->index >> (b + 1)) & 1) == 1)
+					pa(data);
+				else
+					rb(data); 
+				size_b--;
+			}
+		}
+		b++;
 	}
-	fix_top(data);
 }
