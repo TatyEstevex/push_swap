@@ -3,54 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 15:42:51 by josmorei          #+#    #+#             */
-/*   Updated: 2026/07/09 12:49:00 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/17 14:39:29 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	algorithm(t_data *data, int flag);
+static void	algorithm(t_data *data);
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		size;
-	int		flag;
 
-	data.stack_a = NULL;
-	data.stack_b = NULL;
-	flag = 0;
+	initialize_struct(&data);
 	if (argc < 2)
 		return (0);
-	if (parsing(argc, argv, &data, &flag) == 0)
+	if (parsing(argc, argv, &data) == 0)
 		return (0);
-	if (check_disorder(&data) > 0)
+	data.size_a = stack_size(data.stack_a);
+	data.size_b = 0;
+	data.initial_disorder = check_disorder(&data);
+	if (data.initial_disorder > 0)
 	{
-		size = stack_size(data.stack_a);
-		if (size == 2)
+		if (data.size_a == 2)
 			sort_two(&data);
-		else if (size == 3)
+		else if (data.size_a == 3)
 			sort_three(&data);
-		else if (size > 3)
-			algorithm(&data, 1); //alterar a flag, tive que por um para forcao o simples
+		else if (data.size_a > 3)
+			algorithm(&data);
 	}
-	print_stack(data.stack_a);
+	if (data.flag)
+		print_benchmark(&data);
 	freestack(&data.stack_a);
 	return (1);
 }
 
-static void	algorithm(t_data *data, int flag)
+static void	algorithm(t_data *data)
 {
-	if (flag == 1)
+	if (data->flag == 1)
 		push_swap_simple(data);
-	else if (flag == 2)
+	else if (data->flag == 2)
 		push_swap_medium(data);
-	else if (flag == 3)
+	else if (data->flag == 3)
 		push_swap_complex(data);
-	else if (flag == 4 || flag == 0)
+	else if (data->flag == 4 || data->flag == 0)
 		push_swap_adaptive(data);
 }
 

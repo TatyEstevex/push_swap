@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/24 10:05:28 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/09 11:14:07 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/17 12:41:20 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ typedef struct s_node
 	int				cost;
 }	t_node;
 
-typedef struct s_sizes
-{
-    int    a; //size_a
-    int    b; //size_b
-}    t_sizes;
-
 typedef struct s_data
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	int		size_a;
+	int		size_b;
 	int		moves;
 	int		count_sa;
 	int		count_sb;
@@ -49,11 +45,15 @@ typedef struct s_data
 	int		count_rra;
 	int		count_rrb;
 	int		count_rrr;
+	int		flag;
+	int		bench;
+	float	initial_disorder;
 }	t_data;
 
 t_node	*new_node(int value);
 t_node	*remove_node(t_node **stack);
-int 	parsing(int argc, char **argv, t_data *data, int *flag);
+void	initialize_struct(t_data *data);
+int 	parsing(int argc, char **argv, t_data *data);
 void	freestack(t_node **stack);
 void	add_front(t_node **stack, t_node *node);
 void	add_back(t_node **stack, t_node *node);
@@ -77,10 +77,10 @@ int		cost_a(int pos_a, int size_a);
 int		cost_b(int pos_b, int size_b);
 void	calculate_costs(t_data *data);
 t_node	*find_cheapest(t_data *data);
-void    rotate_b(t_data *data, int pos, int size_b);
-void    rotate_a(t_data *data, int pos, int size_a);
-void    rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes);
-void    reverse_rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes);
+void    rotate_b(t_data *data, int pos);
+void    rotate_a(t_data *data, int pos);
+void    rotate_both(t_data *data, int pos_a, int pos_b);
+void    reverse_rotate_both(t_data *data, int pos_a, int pos_b);
 void	swap_cheapest(t_data *data);
 void	push_swap_simple(t_data *data);
 void	fix_top(t_data *data);
@@ -88,13 +88,21 @@ float	check_disorder(t_data *data);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		parse_string(char *str, t_node **stack_a);
 void    push_swap_medium(t_data *data);
+void	push_chunk(t_data *data);
 void    push_swap_complex(t_data *data);
 void    push_swap_adaptive(t_data *data);
 int     verifynumb(char *str);
 long    ft_atoi(char *str);
 int     checkdup(t_node *stack, int nb);
 int     parse_string(char *str, t_node **stack_a);
-
+void	init_index_stack(t_data *data);
+void	push_to_b(t_data *data);
+int		ft_sqrt(int n);
+t_node	*find_min_unindexed(t_data *data);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	print_benchmark(t_data *data);
 
 void	print_stack(t_node *stack); // apagar, para testes
 

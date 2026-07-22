@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_stacks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:25:01 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/09 10:43:43 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/20 14:01:19 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_b(t_data *data, int pos, int size_b)
+void	rotate_b(t_data *data, int pos)
 {
-	if (pos <= size_b / 2)
+	if (pos <= data->size_b / 2)
 	{
 		while (pos != 0)
 		{
@@ -24,7 +24,7 @@ void	rotate_b(t_data *data, int pos, int size_b)
 	}
 	else
 	{
-		pos = size_b - pos;
+		pos = data->size_b - pos;
 		while (pos != 0)
 		{
 			rrb(data);
@@ -33,9 +33,9 @@ void	rotate_b(t_data *data, int pos, int size_b)
 	}
 }
 
-void	rotate_a(t_data *data, int pos, int size_a)
+void	rotate_a(t_data *data, int pos)
 {
-	if (pos <= size_a / 2)
+	if (pos <= data->size_a / 2)
 	{
 		while (pos != 0)
 		{
@@ -45,7 +45,7 @@ void	rotate_a(t_data *data, int pos, int size_a)
 	}
 	else
 	{
-		pos = size_a - pos;
+		pos = data->size_a - pos;
 		while (pos != 0)
 		{
 			rra(data);
@@ -54,7 +54,7 @@ void	rotate_a(t_data *data, int pos, int size_a)
 	}
 }
 
-void	rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes)
+void	rotate_both(t_data *data, int pos_a, int pos_b)
 {
 	while (pos_a > 0 && pos_b > 0)
 	{
@@ -62,14 +62,14 @@ void	rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes)
 		pos_a--;
 		pos_b--;
 	}
-	rotate_a(data, pos_a, sizes.a);
-	rotate_b(data, pos_b, sizes.b);
+	rotate_a(data, pos_a);
+	rotate_b(data, pos_b);
 }
 
-void	reverse_rotate_both(t_data *data, int pos_a, int pos_b, t_sizes sizes)
+void	reverse_rotate_both(t_data *data, int pos_a, int pos_b)
 {
-	pos_a = sizes.a - pos_a;
-	pos_b = sizes.b - pos_b;
+	pos_a = data->size_a - pos_a;
+	pos_b = data->size_b - pos_b;
 	while (pos_a > 0 && pos_b > 0)
 	{
 		rrr(data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_costs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-alme <tde-alm@student.42porto.com>     +#+  +:+       +#+        */
+/*   By: tde-alme <tde-alme@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 11:40:32 by tde-alme          #+#    #+#             */
-/*   Updated: 2026/07/08 15:43:52 by tde-alme         ###   ########.fr       */
+/*   Updated: 2026/07/14 12:38:32 by tde-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	calculate_costs(t_data *data)
 	current = data->stack_b;
 	while (pos_b < size_b)
 	{
-		current->cost = get_total_cost(find_position(data, current->value),
+		current->cost = get_total_cost(find_position(data, current->index),
 				pos_b, size_a, size_b);
 		current = current->next;
 		pos_b++;

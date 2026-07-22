@@ -26,7 +26,8 @@ void	pa(t_data *data)
 	write(1, "pa\n", 3);
 	data->moves++;
 	data->count_pa++;
-		// acrescentar um no stack a quando movimento para a a, e no b a mesma coisa, e retirar do que sai
+	data->size_a++;
+	data->size_b--;
 }
 
 void	pb(t_data *data)
@@ -40,4 +41,6 @@ void	pb(t_data *data)
 	write(1, "pb\n", 3);
 	data->moves++;
 	data->count_pb++;
+	data->size_a--;
+	data->size_b++;
 }
